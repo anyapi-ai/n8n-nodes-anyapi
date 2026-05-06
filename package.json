@@ -1,0 +1,64 @@
+{
+	"name": "n8n-nodes-anyapi.ai",
+	"version": "0.1.0",
+	"description": "n8n community node for AnyAPI.ai — unified AI gateway with 300+ LLM models",
+	"keywords": [
+		"n8n-community-node-package",
+		"anyapi",
+        "anyapi.ai",
+		"llm",
+		"openai",
+        "claude",
+        "anthropic",
+        "gemini",
+        "unified-api",
+		"ai-gateway",
+		"litellm",
+        "openrouter"
+	],
+	"license": "MIT",
+	"homepage": "https://anyapi.ai",
+	"author": {
+		"name": "AnyAPI",
+		"email": "support@anyapi.ai"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/anyapi-ai/n8n-nodes-anyapi.git"
+	},
+	"engines": {
+		"node": ">=22.0",
+		"npm": ">=10.0"
+	},
+	"main": "index.js",
+	"scripts": {
+		"dev": "npx n8n",
+		"build": "tsc && gulp build:icons",
+		"build:watch": "tsc --watch",
+		"lint": "eslint nodes/ credentials/ --ext .ts",
+		"lint:fix": "eslint nodes/ credentials/ --ext .ts --fix",
+		"prepublishOnly": "npm run build"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/AnyApiCredentials.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/AnyApi/AnyApi.node.js"
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^22.0.0",
+		"eslint": "^8.56.0",
+		"gulp": "^5.0.0",
+		"n8n-workflow": "*",
+		"typescript": "~5.6.0"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
