@@ -25,6 +25,20 @@ You need an AnyAPI API key:
 2. Go to the Dashboard and copy your API key
 3. In n8n, create new **AnyAPI** credentials with your API key
 
+## Usage Example
+
+### Chat Completion
+
+1. Add the **AnyAPI** node to your workflow
+2. Set **Resource** to `Chat` and **Operation** to `Completions`
+3. Choose a **Model**, for example `openai/gpt-4o`
+4. Under **Messages**, add one item:
+   - **Role**: `user`
+   - **Content**: `What is the capital of France?`
+5. Execute the node
+
+The node returns the model's response in the output JSON, including the generated message, token usage, and model metadata — ready to be passed to the next node in your workflow.
+
 ## Resources
 
 - [AnyAPI Documentation](https://docs.anyapi.ai)

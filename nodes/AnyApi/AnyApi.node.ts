@@ -4,6 +4,8 @@ import {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
+	JsonObject,
+	NodeApiError,
 } from 'n8n-workflow';
 
 export class AnyApi implements INodeType {
@@ -583,7 +585,7 @@ export class AnyApi implements INodeType {
 					});
 					continue;
 				}
-				throw error;
+				throw new NodeApiError(this.getNode(), error as JsonObject);
 			}
 		}
 
